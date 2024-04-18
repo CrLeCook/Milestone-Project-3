@@ -1,2 +1,7 @@
 # Milestone Project 3
- CC To Do Tracker
+used python to generate secret key using commands
+"python
+
+import secrets
+
+secrets.token_hex(20)"
