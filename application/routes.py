@@ -1,5 +1,6 @@
 from application import app
-from flask import render_template, flash, request
+from flask import render_template, redirect, flash, request, url_for
+from application import db
 from .forms import TodoForm
 from datetime import datetime
 
@@ -26,6 +27,7 @@ def add_todo():
             "date completed": datetime.now()
         })
         flash("Task successfully created", "success")
-
-    form = TodoForm()
+        return redirect("/")
+    else:
+        form = TodoForm()
     return render_template("add_todo.html", form = form)
