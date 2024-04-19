@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>To Do App</title>
-<link rel="stylesheet" href="/application/templates/styles.css" />
+<title>Habitual</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,40..300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
     <nav class="navbar">
@@ -20,12 +20,14 @@
           </div>
           <ul class="navbar__menu">
             <li class="navbar__item">
-              <a href="/application/templates/index.html" class="navbar__links">home</a>
+                <a href="/" class="navbar__links">home</a>
             </li>
             <li class="navbar__item">
-              <a href="/" class="navbar__links">about</a>
+                <a href="/about" class="navbar__links">about</a>
             </li>
-            <li class="navbar__btn"><a href="/application/templates/tech.html" class="button">launch app</a></li>
+            <li class="navbar__btn">
+                <a href="/tech" class="button">launch app</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -40,11 +42,11 @@
                 <button class="main__btn"><a href="/application/templates/tech.html">get started</a></button>
             </div>
             <div class="main__img--container">
-                <img src="/images/home_page_image.svg" alt="hand drawn image of a woman looking at a to do list" id="main__img">
+              <img src="{{ url_for('static', filename='home_page_image.svg') }}" alt="hand drawn image of a woman looking at a to do list">
             </div>
         </div>
       </div>
-    <script src="/application/templates/slide.js"></script>
-    <script src="https://kit.fontawesome.com/bac23c12dd.js" crossorigin="anonymous"></script>
+      <script src="{{ url_for('static', filename='slide.js') }}"></script>
+      <script src="https://kit.fontawesome.com/bac23c12dd.js" crossorigin="anonymous"></script>
   </body>
 </html>
