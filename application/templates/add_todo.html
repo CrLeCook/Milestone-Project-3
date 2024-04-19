@@ -1,0 +1,24 @@
+{% extends "tech.html" %}
+{% block content %}
+<div>
+    <form action="" method="post">
+        {{ form.csrf_token() }}
+        <fieldset class="form-group">
+            <legend>Add Todo</legend>
+            
+            <div class="form-group">
+                {{ form.name.label(class="form-control-label") }}
+                {% if form.name.errors %}
+                    {{ form.name(class="form-control form-control is-invalid") }}
+                    {% for error in form.name.errors %}
+                        <div class="invalid-feedback">
+                            <span>{{ error }}</span>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+{% endblock %}
