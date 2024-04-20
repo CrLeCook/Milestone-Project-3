@@ -15,6 +15,11 @@ def index():
 def tech():
     return render_template("tech.html")
 
+# Route for the about page
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 # Route for viewing all todos
 @app.route("/view_todos")
 def get_todos():
