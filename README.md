@@ -194,6 +194,9 @@ Full testing was performed on the following devices:
 * Mobile Devices:
   * Samsung S23 Ultra.
 
+  ![Mobile view](/documentation/mobile1.jpg)
+  ![Mobile view 2](/documentation/mobile2.jpg)
+
 Each device tested the site using the following browsers:
 
 * Google Chrome
