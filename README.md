@@ -31,7 +31,7 @@ As a first time user of the site I want to be able to:
 
 #### __Returning Visitor Goals__
 
-As a returning registered user of the site I want to be able to:
+As a returning user of the site I want to be able to:
 
 * Get to where I want to be quickly.
 * View, update, or delete a task.
