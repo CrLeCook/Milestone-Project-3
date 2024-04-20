@@ -91,6 +91,10 @@ The website is comprised of 12 pages which are extended from a base template.
 
 - - -
 
+### Deployment
+
+Habitual is deployed on [pythonanywhere](https://www.pythonanywhere.com), which is similar to heroku. I am using the paid account, which allows my website to connect to external websites (required so my app could reach my database)
+
 ### Future Implementations
 
 In future implementations I would like to:
