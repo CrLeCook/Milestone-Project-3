@@ -6,6 +6,7 @@
         <fieldset class="form-group">
             <legend>add task</legend>
 
+            <!-- Form field for task name -->
             <div class="form-group">
                 {{ form.name.label(class="formcontrol-label") }}
                 {% if form.name.errors %}
@@ -20,6 +21,7 @@
                 {% endif %}
             </div>
 
+            <!-- Form field for completion status -->
             <div class="form-group">
                 {{ form.completed.label(class="form-control-label") }}
                 {% if form.completed.errors %}
@@ -34,6 +36,7 @@
                 {% endif %}
             </div>
 
+            <!-- Form field for task description -->
             <div class="form-group">
                 {{ form.description.label(class="form-control-label") }}
                 {% if form.description.errors %}
@@ -48,7 +51,7 @@
                 {% endif %}
             </div>
 
-
+            <!-- Submit button for the form -->
             <div class="form-group">
                 {{ form.submit(class="btn btn-outline-info") }}
             </div>
