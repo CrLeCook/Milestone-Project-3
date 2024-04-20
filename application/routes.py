@@ -21,7 +21,7 @@ def get_todos():
         todo["date completed"] = todo["date completed"].strftime("%b %d %Y %H:%M:%S")
         todos.append(todo)
 
-    return render_template("view_todos.html", todos = todos)
+    return render_template("view_todos.html", todos=todos)
 
 @app.route("/add_todo", methods=["POST", "GET"])
 def add_todo():
@@ -41,7 +41,7 @@ def add_todo():
         return redirect("/view_todos")
     else:
         form = TodoForm()
-    return render_template("add_todo.html", form = form)
+    return render_template("add_todo.html", form=form)
 
 @app.route("/delete_todo/<id>")
 def delete_todo(id):
@@ -49,7 +49,7 @@ def delete_todo(id):
     flash("Task successfully deleted", "success")
     return redirect("/view_todos")
 
-@app.route("/update_todo/<id>", methods = ['POST', 'GET'])
+@app.route("/update_todo/<id>", methods=['POST', 'GET'])
 def update_todo(id):
     if request.method == "POST":
         form = TodoForm(request.form)
@@ -74,4 +74,4 @@ def update_todo(id):
         form.description.data = todo.get("description", None)
         form.completed.data = todo.get("completed", None)
 
-    return render_template("add_todo.html", form = form)
+    return render_template("add_todo.html", form=form)

@@ -5,6 +5,6 @@ from wtforms.validators import DataRequired
 
 class TodoForm(FlaskForm):
     name = StringField('name of task', validators=[DataRequired()])
-    description = TextAreaField('description',validators=[DataRequired()])
-    completed = SelectField('completed?', choices = [("False", "yes"), ("True", "no")], validators = [DataRequired()])
+    description = TextAreaField('description', validators=[DataRequired()])
+    completed = SelectField('completed?', choices=[("False", "no"), ("True", "yes")], validators=[DataRequired()])
     submit = SubmitField("create task!")
