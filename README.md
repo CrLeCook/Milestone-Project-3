@@ -62,7 +62,7 @@ Being simple in nature, the website only hosts 1 image. Of a lady using a to do 
 
 ## Features
 
-The website is comprised of 12 pages which are extended from a base template.
+The website is comprised of 4 pages which are extended from a base template.
 
 * Home/landing/index page
 * About page
