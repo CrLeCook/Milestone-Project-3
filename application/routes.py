@@ -11,6 +11,14 @@ def index():
 @app.route("/tech")
 def tech():
     return render_template("tech.html", title = "To Do | Habitual")
+def get_todos():
+    todos = []
+    for todo in db.todos_flask.find().sort("date_created", -1):
+        todo["_id"] = str(todo["_id"])
+        todo["date_created"] = todo["date_created"].strftime("%b %d %Y %H:%M:%S")
+        todos.append(todo)
+
+    return render_template("view_todos.html", todos = todos)
 
 @app.route("/add_todo", methods=["POST", "GET"])
 def add_todo():
@@ -19,8 +27,8 @@ def add_todo():
         todo_name = form.name.data
         todo_description = form.description.data
         completed = form.completed.data
-        
-        db.todo_flask.insert_one({
+
+        db.todos_flask.insert_one({
             "name": todo_name,
             "description": todo_description,
             "completed": completed,
