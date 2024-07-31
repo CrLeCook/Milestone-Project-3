@@ -94,6 +94,59 @@
   transition: all 0.3s ease;
 }
 
+/* Hamburger Menu Styles */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  height: 3px;
+  width: 25px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+  .navbar__menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background: #131313;
+    text-align: center;
+  }
+
+  .navbar__toggle {
+    display: flex; /* Show hamburger icon */
+  }
+
+  .navbar__menu.active {
+    display: flex; /* Show the menu when toggled */
+  }
+
+  .navbar__item {
+    width: 100%;
+  }
+
+  .navbar__links {
+    padding: 1.5rem 0;
+    width: 100%;
+    display: block; /* Adjust links to fill menu width */
+  }
+
+  .navbar__btn {
+    padding: 1.5rem 0;
+    width: 100%;
+    display: block; /* Adjust buttons to fill menu width */
+  }
+}
+
 /* Main Content Area */
 .main {
   background-color: #141414;
@@ -158,4 +211,73 @@
     grid-template-columns: 1fr; /* Stack content and image on smaller screens */
     padding: 0 20px; /* Reduce padding on smaller screens */
   }
+}
+
+/* Form Styles */
+.register-content {
+  color: #fff; /* Ensure text color matches the rest of the site */
+  padding: 20px;
+  max-width: 600px; /* Constrain form width for better readability */
+  margin: 0 auto; /* Center the form */
+  background: #1f1f1f; /* Slightly different background for form container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add some shadow for depth */
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 1rem; /* Space between form groups */
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem; /* Space between label and input */
+  color: #e0e0e0; /* Lighter color for labels */
+}
+
+.form-control {
+  width: 100%; /* Full width for inputs */
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #262626; /* Background for input fields */
+  color: #fff;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #f77062; /* Highlight border color on focus */
+}
+
+.error {
+  color: #f77062; /* Color for error messages */
+  margin-top: 0.5rem;
+}
+
+.btn-primary {
+  background: #f77062; /* Button color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  background: #4837ff; /* Change button color on hover */
+  transition: background 0.3s ease;
+}
+
+.link {
+  color: #f77062; /* Link color for "Login here" */
+}
+
+.link:hover {
+  color: #4837ff; /* Link hover color */
+  text-decoration: underline;
 }
