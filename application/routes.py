@@ -1,7 +1,7 @@
 from flask import render_template, redirect, flash, request, url_for
 from flask_login import login_user, current_user, logout_user, login_required
 from application import app, db, bcrypt, login_manager
-from .forms import TodoForm, RegistrationForm, LoginForm
+from .forms import TodoForm, RegistrationForm, LoginForm, AccountForm
 from datetime import datetime
 from bson import ObjectId
 from flask_login import UserMixin
@@ -129,4 +129,41 @@ def login():
 @login_required
 def logout():
     logout_user()
+    return redirect(url_for('index'))
+
+@app.route("/account", methods=['GET', 'POST'])
+@login_required
+def account():
+    form = AccountForm()
+    if form.validate_on_submit():
+        # Update user's account information
+        new_username = form.username.data
+        new_password = form.password.data
+        if new_password:
+            hashed_password = bcrypt.generate_password_hash(new_password).decode('utf-8')
+            db.users.update_one({"_id": ObjectId(current_user.id)}, {"$set": {
+                "username": new_username,
+                "password": hashed_password
+            }})
+        else:
+            db.users.update_one({"_id": ObjectId(current_user.id)}, {"$set": {
+                "username": new_username
+            }})
+        # Update current_user object
+        current_user.username = new_username
+        if new_password:
+            current_user.password = hashed_password
+        flash('Your account has been updated!', 'success')
+        return redirect(url_for('account'))
+    elif request.method == 'GET':
+        form.username.data = current_user.username
+    return render_template('account.html', title='Account', form=form)
+
+@app.route("/delete_account", methods=['POST'])
+@login_required
+def delete_account():
+    user_id = current_user.id
+    db.users.delete_one({"_id": ObjectId(user_id)})
+    logout_user()
+    flash("Your account has been deleted.", "success")
     return redirect(url_for('index'))
