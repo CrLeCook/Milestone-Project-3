@@ -1,17 +1,24 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, SelectField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, SelectField
+from wtforms.validators import DataRequired, Length, EqualTo
 
-# Define a FlaskForm for creating a new todo
 class TodoForm(FlaskForm):
-    # StringField for the name of the task
-    name = StringField('name of task', validators=[DataRequired()])
-    
-    # TextAreaField for the description of the task
-    description = TextAreaField('description', validators=[DataRequired()])
-    
-    # SelectField for indicating whether the task is completed or not
-    completed = SelectField('completed?', choices=[("False", "no"), ("True", "yes")], validators=[DataRequired()])
-    
-    # SubmitField for submitting the form to create the task
-    submit = SubmitField("create task!")
+    name = StringField('Name of Task', validators=[DataRequired()])
+    description = TextAreaField('Description', validators=[DataRequired()])
+    completed = SelectField('Completed?', choices=[("False", "No"), ("True", "Yes")], validators=[DataRequired()])
+    submit = SubmitField("Create Task!")
+
+class RegistrationForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password', validators=[
+        DataRequired(),
+        EqualTo('password', message='Passwords must match')
+    ])
+    submit = SubmitField('Register')
+
+class LoginForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember = BooleanField('Remember Me')
+    submit = SubmitField('Login')

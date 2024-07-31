@@ -25,9 +25,24 @@
         <li class="navbar__item">
           <a href="/about" class="navbar__links">about</a>
         </li>
-        <li class="navbar__btn">
-          <a href="/tech" class="button">launch app</a>
-        </li>
+        {% if current_user.is_authenticated %}
+          <li class="navbar__btn">
+            <a href="/tech" class="button">launch app</a>
+          </li>
+          <li class="navbar__item">
+            <a href="/logout" class="navbar__links">logout</a>
+          </li>
+          <li class="navbar__item">
+            <a href="/account" class="navbar__links">account</a>
+          </li>
+        {% else %}
+          <li class="navbar__item">
+            <a href="/login" class="navbar__links">log in</a>
+          </li>
+          <li class="navbar__btn">
+            <a href="/register" class="button">register</a>
+          </li>
+        {% endif %}
       </ul>
     </div>
   </nav>
@@ -37,7 +52,7 @@
     <div class="main__container">
       <div class="main__content">
         <p>this website was created by craig cook as part of his 3rd milestone project for the Code Institute's Level 5 Diploma in Web Application Development.</p>
-        <button class="main__btn"><a href="/tech">get started</a></button>
+        <button class="main__btn"><a href="/login">get started</a></button>
       </div>
       <div class="main__img--container">
         <img src="{{ url_for('static', filename='home_page_image.svg') }}" alt="hand drawn image of a woman looking at a to do list">

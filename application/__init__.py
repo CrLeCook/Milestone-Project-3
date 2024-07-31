@@ -1,5 +1,7 @@
 from flask import Flask
 from flask_pymongo import PyMongo
+from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -15,6 +17,14 @@ mongodb_client = PyMongo(app)
 
 # Select the "flask_app" database from the MongoDB client
 db = mongodb_client.cx["flask_app"]
+
+# Initialize Bcrypt for password hashing
+bcrypt = Bcrypt(app)
+
+# Initialize LoginManager for user session management
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'  # Redirect to login page if not authenticated
+login_manager.login_message_category = 'info'  # Flash message category
 
 # Import routes from the application package
 from application import routes
