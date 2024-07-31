@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register - Habitual</title>
+  <title>Habitual - Register</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,40..300&display=swap" rel="stylesheet">
@@ -13,6 +13,11 @@
   <nav class="navbar">
     <div class="navbar__container">
       <a href="/" id="navbar__logo"><i class="fa-regular fa-square-check"></i>habitual</a>
+      <div class="navbar__toggle" id="mobile-menu">
+        <span class="bar"></span> 
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
       <ul class="navbar__menu">
         <li class="navbar__item"><a href="/" class="navbar__links">home</a></li>
         <li class="navbar__item"><a href="/about" class="navbar__links">about</a></li>
@@ -33,7 +38,6 @@
     <div class="main__container">
       <div class="main__content register-content">
         <h1>Register</h1>
-        <!-- Display form for user registration -->
         <form method="POST" action="{{ url_for('register') }}" class="register-form">
           {{ form.hidden_tag() }}
           <div class="form-group">
