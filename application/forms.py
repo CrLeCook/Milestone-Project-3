@@ -3,27 +3,27 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextA
 from wtforms.validators import DataRequired, Length, EqualTo, Optional
 
 class TodoForm(FlaskForm):
-    name = StringField('Name of Task', validators=[DataRequired()])
-    description = TextAreaField('Description', validators=[DataRequired()])
-    completed = SelectField('Completed?', choices=[("False", "No"), ("True", "Yes")], validators=[DataRequired()])
-    submit = SubmitField("Create Task!")
+    name = StringField('name of task', validators=[DataRequired()])
+    description = TextAreaField('description', validators=[DataRequired()])
+    completed = SelectField('completed?', choices=[("False", "No"), ("True", "Yes")], validators=[DataRequired()])
+    submit = SubmitField("create Task!")
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = PasswordField('Confirm Password', validators=[
+    username = StringField('username', validators=[DataRequired()])
+    password = PasswordField('password', validators=[DataRequired()])
+    confirm_password = PasswordField('confirm password', validators=[
         DataRequired(),
         EqualTo('password', message='Passwords must match')
     ])
-    submit = SubmitField('Register')
+    submit = SubmitField('register')
 
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember = BooleanField('Remember Me')
-    submit = SubmitField('Login')
+    username = StringField('username', validators=[DataRequired()])
+    password = PasswordField('password', validators=[DataRequired()])
+    remember = BooleanField('remember Me')
+    submit = SubmitField('login')
     
 class AccountForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Update')
+    username = StringField('username', validators=[DataRequired(), Length(min=2, max=20)])
+    password = PasswordField('new password', validators=[DataRequired()])
+    submit = SubmitField('update password')
