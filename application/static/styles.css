@@ -1,4 +1,4 @@
-/* Global styles */
+/* Global Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +6,7 @@
   font-family: 'Kumbh Sans', sans-serif;
 }
 
-/* Navigation bar styles */
+/* Navigation Bar Styles */
 .navbar {
   background: #131313;
   height: 80px;
@@ -16,13 +16,14 @@
   font-size: 1.2rem;
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 999; /* Ensure the navbar stays on top */
 }
 
 .navbar__container {
   display: flex;
   justify-content: space-between;
-  height: 80px;
+  align-items: center; /* Align logo and menu vertically */
+  height: 100%;
   width: 100%;
   max-width: 1300px;
   padding: 0 50px;
@@ -40,10 +41,9 @@
   align-items: center;
   cursor: pointer;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 2rem; /* Logo font size */
 }
 
-/* Styles for menu items */
 .navbar__menu {
   display: flex;
   align-items: center;
@@ -51,10 +51,9 @@
 }
 
 .navbar__item {
-  height: 80px;
+  height: 100%; /* Ensure menu items fill the navbar height */
 }
 
-/* Styles for menu links */
 .navbar__links {
   color: #fff;
   display: flex;
@@ -62,10 +61,9 @@
   justify-content: center;
   text-decoration: none;
   padding: 0 1rem;
-  height: 100%;
+  height: 100%; /* Ensure links fill the navbar height */
 }
 
-/* Styles for menu buttons */
 .navbar__btn {
   display: flex;
   justify-content: center;
@@ -73,7 +71,6 @@
   padding: 0 1rem;
 }
 
-/* Button styles */
 .button {
   display: flex;
   justify-content: center;
@@ -84,33 +81,31 @@
   border-radius: 4px;
   background: #f77062;
   color: #fff;
+  cursor: pointer;
 }
 
-/* Button hover styles */
 .button:hover {
-  background: #4837ff;
+  background: #4837ff; /* Change background color on hover */
   transition: all 0.3s ease;
 }
 
-/* Menu link hover styles */
 .navbar__links:hover {
-  color: #f77062;
+  color: #f77062; /* Change link color on hover */
   transition: all 0.3s ease;
 }
 
-/* Body section styles */
+/* Main Content Area */
 .main {
   background-color: #141414;
+  min-height: 90vh; /* Ensure the main section takes at least 90% of the viewport height */
 }
 
 .main__container {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr; /* Two columns: one for content, one for image */
   align-items: center;
-  justify-self: center;
+  justify-content: center;
   margin: 0 auto;
-  height: 90vh;
-  background-color: #131313;
   width: 100%;
   max-width: 1300px;
   padding: 0 50px;
@@ -118,71 +113,49 @@
 
 .main__content {
   color: #fff;
-  width: 100%;
+  padding-right: 20px; /* Add space between text and image */
 }
 
-/* Styles for register page */
-.register-content {
-  text-align: center;
+.main__content p {
+  font-size: 1.2rem; /* Increase paragraph font size */
+  line-height: 1.6; /* Improve readability */
 }
 
-.register-form {
-  background: #1e1e1e;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.form-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-}
-
-.form-control {
-  width: 100%;
-  padding: 0.75rem;
-  border-radius: 4px;
-  border: 1px solid #333;
-  background: #222;
-  color: #fff;
-}
-
-.error {
-  color: #f77062;
-  font-size: 0.875rem;
-}
-
-.btn-primary {
-  background: #ff8177;
+.main__btn {
+  font-size: 1.1rem; /* Increase button font size */
+  padding: 12px 24px; /* Adjust padding */
+  background: #f77062; /* Button background color */
   border: none;
-  padding: 0.75rem 1.5rem;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
-  font-size: 1rem;
+  display: inline-block; /* Ensure the button has the correct size */
+  text-decoration: none; /* Remove underline from link */
 }
 
-.btn-primary:hover {
-  background: #ff0844;
+.main__btn:hover {
+  background: #4837ff; /* Change button color on hover */
+  transition: all 0.3s ease;
 }
 
-.link {
-  color: #ff8177;
+.main__btn a {
+  color: inherit; /* Inherit the button color for the link inside */
+  text-decoration: none; /* Remove underline from the link */
 }
 
-.link:hover {
-  color: #ff0844;
+.main__img--container {
+  text-align: center;
 }
 
-/* Media queries for responsiveness */
+.main__img--container img {
+  max-width: 100%; /* Ensure image scales with its container */
+  height: auto;
+}
+
+/* Media Queries for Responsiveness */
 @media screen and (max-width: 768px) {
   .main__container {
-    grid-template-columns: auto;
-    padding: 0 20px;
+    grid-template-columns: 1fr; /* Stack content and image on smaller screens */
+    padding: 0 20px; /* Reduce padding on smaller screens */
   }
 }
